@@ -24,6 +24,7 @@ services:
         target: /app-data
     networks:
       - dcrpulse
+      - dcrpulse_internal
     healthcheck:
       test: ["CMD", "sh", "-c", "curl -k -u casaos:casaos -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"1.0\",\"method\":\"getinfo\",\"params\":[],\"id\":1}' https://127.0.0.1:9109 || exit 1"]
       interval: 30s
@@ -86,11 +87,11 @@ services:
       dcrd:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "sh", "-c", "nc -z 127.0.0.1 9110 && nc -z 127.0.0.1 9111 || exit 1"]
+      test: ["CMD", "sh", "-c", "test -e /proc/1 || exit 1"]
       interval: 10s
       timeout: 5s
-      retries: 3
-      start_period: 10s
+      retries: 5
+      start_period: 60s
     deploy:
       resources:
         reservations:
