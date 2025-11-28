@@ -16,8 +16,8 @@ services:
       --rpcuser=casaos
       --rpcpass=casaos
       --rpclisten=0.0.0.0:9109
-      --rpccert=/app-data/rpc.cert
-      --rpckey=/app-data/rpc.key
+      --rpccert=/app-data/dcrd/rpc.cert
+      --rpckey=/app-data/dcrd/rpc.key
     volumes:
       - type: bind
         source: /DATA/AppData/$AppID/dcrd
@@ -144,13 +144,13 @@ services:
       DCRD_RPC_PORT: 9109
       DCRD_RPC_USER: casaos
       DCRD_RPC_PASS: casaos
-      DCRD_RPC_CERT: /app-data/rpc.cert
+      DCRD_RPC_CERT: /app-data/dcrd/rpc.cert
       DCRWALLET_RPC_HOST: dcrwallet
       DCRWALLET_RPC_PORT: 9110
       DCRWALLET_GRPC_PORT: 9111
       DCRWALLET_RPC_USER: casaos
       DCRWALLET_RPC_PASS: casaos
-      DCRWALLET_RPC_CERT: /app-data/rpc.cert
+      DCRWALLET_RPC_CERT: /app-data/dcrd/rpc.cert
     volumes:
       - type: bind
         source: /DATA/AppData/$AppID/dcrd
