@@ -161,6 +161,7 @@ services:
         published: "8080"
         protocol: tcp
     networks:
+      - dcrpulse
       - dcrpulse_internal
     depends_on:
       dcrd:
