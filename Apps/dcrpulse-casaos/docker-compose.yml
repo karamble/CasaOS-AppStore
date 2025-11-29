@@ -82,7 +82,7 @@ services:
         source: /DATA/AppData/$AppID/dcrwallet
         target: /app-data
       - type: bind
-        source: /DATA/AppData/$AppID/dcrd
+        source: /DATA/AppData/$AppID/dcrd/dcrd
         target: /app-data/dcrd
         read_only: true
     networks:
